@@ -6,6 +6,9 @@ import CounterControl from "../../components/CounterControl/CounterContol"
 import CounterOutput from "../../components/CounterOutput/CounterOutput"
 import * as actionCreators from "../../store/actions/index";
 import { ICounterProps } from "../../intefaces"
+import {State, Result} from "../../types"
+
+
 
 
 class Counter extends React.Component<ICounterProps> {
@@ -23,7 +26,7 @@ class Counter extends React.Component<ICounterProps> {
           Store result
         </button>
         <ul>
-          {this.props.storedResults.map((strResult: any) => (
+          {this.props.storedResults.map((strResult: Result) => (
             <li
               key={strResult.id}
               onClick={() => this.props.onDeleteResult(strResult.id)}
@@ -37,7 +40,7 @@ class Counter extends React.Component<ICounterProps> {
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: State) => {
   return {
     ctr: state.ctr.counter,
     storedResults: state.res.results
@@ -50,8 +53,8 @@ const mapDispatchToProps = (dispatch: any) => {
     onDecrementCounter: () => dispatch(actionCreators.decrement()),
     onAddCounter: () => dispatch(actionCreators.add(5)),
     onSubtractCounter: () => dispatch(actionCreators.subtract(5)),
-    onStoreResult: (result: any) => dispatch(actionCreators.storeResult(result)),
-    onDeleteResult: (id: any) => dispatch(actionCreators.deleteResult(id))
+    onStoreResult: (result: number) => dispatch(actionCreators.storeResult(result)),
+    onDeleteResult: (id: string) => dispatch(actionCreators.deleteResult(id))
   };
 };
 

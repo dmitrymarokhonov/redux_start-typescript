@@ -1,10 +1,12 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../utility";
+import {InnerState} from "../../types"
+
 const initialState = {
   counter: 0
 };
 
-const counterReducer = (state = initialState, action:any) => {
+const counterReducer = (state:InnerState = initialState, action:any) => {
   switch (action.type) {
     case actionTypes.INCREMENT:
     return updateObject(state, { counter: state.counter + 1 });
@@ -23,4 +25,4 @@ const counterReducer = (state = initialState, action:any) => {
   }
 };
 
-export default counterReducer;
+export default counterReducer;/*  */

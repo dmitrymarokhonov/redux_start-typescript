@@ -8,3 +8,9 @@ export interface ICounterProps {
   storedResults: any
   onDeleteResult: any
 }
+
+export interface ICounterStateFromProps {
+  ctr: number,
+  storedResults: number[] | number
+}
+

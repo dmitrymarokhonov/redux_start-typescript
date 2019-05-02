@@ -1,6 +1,13 @@
-import React from 'react'
+import React from "react"
+import "./CounterContol.css"
 
-const CounterContol = (props:any) => {
+type CounterControlProps = {
+  label: string
+  clicked: any
+}
+
+const CounterContol = (props:CounterControlProps) => {
+  console.log(props);
   return (
     <div className="CounterControl" onClick={props.clicked}>
         {props.label}
